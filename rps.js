@@ -1,19 +1,52 @@
 // set up the main game function
 function game() {
+  // set up variable for score before the loop
+  var playerScore = 0;
+  var computerScore = 0;
   // make i variable count towards 6
   for (var i = 0; i < 6; i++)
   // for first 5 tries, play round
   if (i < 5 ){
     playRound()
-    console.log(result);
+    // check the round result for correct message in log
+    if (result === "Error") {
+      console.log("Something went horribly wrong.")
+    } else  if  (result === "Tie") {
+      console.log("It's tie.")
+    } else {
+    console.log(result + " wins");
+    }
     // log the round number
     console.log("This was round n. " + (i + 1));
-    // create a variable for round (from i)
-    // save result of the round
 
+    // create a variable for round
+    // save result of the round
+    switch (i) {
+      case 0:
+        roundOne = result;
+        break;
+      case 1:
+        roundTwo = result;
+        break;
+      case 2:
+        roundThree = result;
+        break;
+      case 3:
+        roundFour = result;
+        break;
+      case 4:
+        roundFive = result;
+        break;
+    }
+    // count the score
+    if (result === "Computer") {
+      var computerScore = ++computerScore;
+    } else if (result === "Player") {
+      var playerScore = ++playerScore;
+    }
   } else {
     // on sixth try, give final message and full results
-    console.log("Game Over \n Reload?")
+    console.log("Game Over \nResults:\n Round 1: " + roundOne + "\n Round 2: " + roundTwo + "\n Round 3: " + roundThree + "\n Round 4: " + roundFour + "\n Round 5: " + roundFive + "\n\nPlayer:Computer\n     " + playerScore + ":" + computerScore);
   }
 }
 
@@ -74,25 +107,25 @@ function playRound() {
   console.log("Computer chose " + computerChoice);
 // compare the results of the two functions
   if (playerChoice === 1 && computerChoice === 1) {
-    return result = "It's a tie";
+    return result = "Tie";
   } else if (playerChoice === 1 && computerChoice === 2) {
-    return result = "Computer wins";
+    return result = "Computer";
   } else if (playerChoice === 1 && computerChoice === 3) {
-    return result = "Player wins";
+    return result = "Player";
   } else if (playerChoice === 2 && computerChoice === 1) {
-    return result = "Player wins";
+    return result = "Player";
   } else if (playerChoice === 2 && computerChoice === 2) {
-    return result = "It's a tie";
+    return result = "Tie";
   } else if (playerChoice === 2 && computerChoice === 3) {
-    return result = "Computer wins";
+    return result = "Computer";
   } else if (playerChoice === 3 && computerChoice === 1) {
-    return result = "Computer wins";
+    return result = "Computer";
   } else if (playerChoice === 3 && computerChoice === 2) {
-    return result = "Player wins";
+    return result = "Player";
   } else if (playerChoice === 3 && computerChoice === 3) {
-    return result = "It's a tie";
+    return result = "Tie";
   } else {
-    return result = "Something went horribly wrong.";
+    return result = "Error";
   }
 }
 
