@@ -161,7 +161,8 @@
             console.log("disabled!");
             for (let dis = 0; dis < buttons.length; dis++) {
                 buttons[dis].setAttribute("disabled", "");
-                buttons[dis].setAttribute("style", "filter:grayscale(1);")
+                buttons[dis].setAttribute("style", "filter:grayscale(1); max-width: 200px;")
+                //buttons[dis].setAttribute("style", "max-width: 200px;")
             }
 
             return roundFive = result;
@@ -190,7 +191,7 @@
 
 
 
- 
+
 
 
 
