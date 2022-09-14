@@ -1,0 +1,91 @@
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
+.buttonsDiv {
+  height: 400px;
+  max-height: 33vw;
+  display: flex;
+  align-items: center;
+}
+
+.gameDiv {
+  height: 400px;
+  max-height: 33vw;
+  font-family: 'Kalam', cursive;
+  font-size: 120%;
+  font-weight: bold;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+  color: #E5B642
+
+
+}
+
+.logDiv {
+  height: 400px;
+  max-height: 33vw;
+
+
+}
+
+.logWindow {
+  height: 100px;
+  width: 400px;
+  background-color: #E5B642;
+  font-family: Space Mono, monospace;
+  overflow-y: scroll;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.infoHeaders, .info {
+  display: flex;
+  justify-content: center;
+}
+
+#infoHeader1, #info1 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#infoHeader2, #info2 {
+  display: flex;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+#infoHeader3, #info3 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+
+
+/* ----------------- SCROLLBAR --------------- */
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #bd9635;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6e571f;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #212529;
+}
+
+::-webkit-scrollbar-corner {
+  background: #212529;
+}
+/* ----------------- SCROLLBAR --------------- */
