@@ -26,12 +26,19 @@ body {
 .logDiv {
   height: 400px;
   max-height: 33vw;
+  font-size: 1em;
+}
 
-
+.logHeader {
+  height: 1.5em;
+  width: 400px;
+  background-color: #6e571f;
+  font-family: Space Mono, monospace;
+  color: #E5B642;
 }
 
 .logWindow {
-  height: 100px;
+  height: 6em;
   width: 400px;
   background-color: #E5B642;
   font-family: Space Mono, monospace;

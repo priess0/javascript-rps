@@ -14,7 +14,7 @@
   </head>
   <body class="bod bg-dark text-light" id="bod" style="font-family: 'IBM Plex Sans', sans-serif;">
     <!-- main div with buttons -->
-    <div class="buttonsDiv">
+    <div class="buttonsDiv" id="buttonsDiv">
       <div class="container d-flex justify-content-center w-75 mx-auto">
         <input type="image" name="button" class="col p-2 w-25" style="max-width: 200px;" src="./images/rock.png" id="rock" value="1"></input>
         <input type="image" name="button" class="col p-2 w-25" style="max-width: 200px;" src="./images/paper.png" id="paper" value="2"></input>
@@ -53,17 +53,24 @@
             <div id="info2"></div>
             <div id="info3"></div>
           </div>
-
         </div>
 
+        <div class="retry" id="retryDiv">
+      <!--
+          <input type="image" name="retryButton" style="max-width: 100px;" src="./images/retry.png" id="retryButton" /></input>
+        </div>
+      -->
+        </div>
       </div>
 
     </div>
 
     <!-- div with log -->
     <div class="logDiv">
-      <div class="logWindow col-md container text-dark mx-auto w-50" id="log">
+      <div class="logHeader col-md container mx-auto w-50" id="logHeader">
           <span><u>Log</u></span>
+      </div>
+      <div class="logWindow col-md container text-dark mx-auto w-50" id="logWindow">
       </div>
     </div>
 

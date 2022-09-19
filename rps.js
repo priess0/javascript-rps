@@ -24,8 +24,8 @@
       const log = document.createElement("div");
       const logContent = document.createTextNode(htmlContent);
       log.appendChild(logContent);
-      const logDiv = document.getElementById("log");
-      logDiv.appendChild(log);
+      const logWindow = document.getElementById("logWindow");
+      logWindow.appendChild(log);
     }
 
 
@@ -123,9 +123,10 @@
     // end of playRound function
     }
 
-    roundDiv.textContent = (i + 1);
+
 
     i++
+    roundDiv.textContent = i;
     if (i <= 5) {
       playRound(value)
       console.log(i)
@@ -158,13 +159,6 @@
             return roundFour = result;
             break;
           case 5:
-            console.log("disabled!");
-            for (let dis = 0; dis < buttons.length; dis++) {
-                buttons[dis].setAttribute("disabled", "");
-                buttons[dis].setAttribute("style", "filter:grayscale(1); max-width: 200px;")
-                //buttons[dis].setAttribute("style", "max-width: 200px;")
-            }
-
             return roundFive = result;
             break;
         }
@@ -175,6 +169,12 @@
       infoDiv3.textContent = computerScore;
 
       if (i === 5) {
+        console.log("disabled!");
+        for (let dis = 0; dis < buttons.length; dis++) {
+            buttons[dis].setAttribute("disabled", "");
+            buttons[dis].setAttribute("style", "filter:grayscale(1); max-width: 200px;")
+            //buttons[dis].setAttribute("style", "max-width: 200px;")
+        }
         //let resultGame = "Game Over" + "\r\n" + "Results:\n Round 1: " + roundOne + "\n Round 2: " + roundTwo + "\n Round 3: " + roundThree + "\n Round 4: " + roundFour + "\n Round 5: " + roundFive + "\n\nPlayer:Computer\n     " + playerScore + ":" + computerScore;
         const resultMsg = document.createElement("div");
         const resultContent = document.createTextNode("Game Over");
@@ -182,11 +182,45 @@
         htmlLog("GAME OVER");
         htmlLog("Player " + playerScore + " : Computer " + computerScore);
         const log = document.createElement("hr");
-        const logDiv = document.getElementById("log");
-        logDiv.appendChild(log);
+        const logWindow = document.getElementById("logWindow");
+        logWindow.appendChild(log);
+
+        //create retry button
+        const buttonsDiv = document.getElementById('buttonsDiv');
+        const retryAdd = document.createElement("input");
+        retryAdd.setAttribute ("type", "image");
+        retryAdd.setAttribute ("name", "retryButton");
+        retryAdd.setAttribute ("style", "max-width: 100px; position: absolute; left: 50%; transform: translate(-50%);");
+        retryAdd.setAttribute ("src", "./images/retry.png");
+        retryAdd.setAttribute ("id", "retryButton");
+        buttonsDiv.appendChild(retryAdd);
+
+        const retryButton = document.getElementById('retryButton');
+        retryButton.addEventListener('click', retry);
       }
 
   }
+}
+
+// set up retry function
+function retry() {
+  for (let dis = 0; dis < buttons.length; dis++) {
+      buttons[dis].disabled = false;
+      buttons[dis].setAttribute("style", "filter:grayscale(0); max-width: 200px;")
+      //buttons[dis].setAttribute("style", "max-width: 200px;")
+  }
+  i = 0;
+  playerScore = 0;
+  computerScore = 0;
+  roundDiv.textContent = "New Game";
+  roundHeader.textContent = (" ");
+  playerHeader.textContent = (" ");
+  computerHeader.textContent = (" ");
+  infoHeader1.textContent = (" ");
+  infoHeader2.textContent = (" ");
+  infoHeader3.textContent = (" ");
+  const retryAdd = document.getElementById('retryButton');
+  retryAdd.remove();
 }
 
 
@@ -195,7 +229,8 @@
 
 
 
-  const buttons = document.querySelectorAll('input');
+  const buttons = document.getElementsByName('button');
+
   const buttonImg = document.getElementsByClassName('buttonImg')
   const roundDiv = document.getElementById('round');
   const playerDiv = document.getElementById('player');
@@ -210,6 +245,9 @@
   const infoHeader1 = document.getElementById('infoHeader1');
   const infoHeader2 = document.getElementById('infoHeader2');
   const infoHeader3 = document.getElementById('infoHeader3');
+  const retryDiv = document.getElementById('retryDiv');
+
+
 
 
 
