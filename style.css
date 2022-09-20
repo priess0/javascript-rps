@@ -24,7 +24,7 @@ body {
 }
 
 .logDiv {
-  height: 400px;
+  height: 500px;
   max-height: 33vw;
   font-size: 1em;
 }
@@ -39,33 +39,39 @@ body {
 
 .logWindow {
   height: 6em;
-  width: 400px;
+  width:  400px;
   background-color: #E5B642;
   font-family: Space Mono, monospace;
   overflow-y: scroll;
   overflow-x: auto;
   white-space: nowrap;
+  padding: 0 10px;
 }
 
-.infoHeaders, .info {
-  display: flex;
-  justify-content: center;
+
+.info {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-#infoHeader1, #info1 {
-  display: flex;
-  justify-content: flex-end;
+.info > div {
+  display: table-cell;
 }
 
-#infoHeader2, #info2 {
-  display: flex;
-  justify-content: center;
-  flex: 0 0 auto;
+
+.info > div:nth-child(1) {
+  text-align: right;
+  width: 48%;
 }
 
-#infoHeader3, #info3 {
-  display: flex;
-  justify-content: flex-end;
+.info > div:nth-child(2) {
+  text-align: center;
+}
+
+.info > div:nth-child(3) {
+  text-align: left;
+  width: 48%;
 }
 
 

@@ -123,7 +123,18 @@
     // end of playRound function
     }
 
-
+    // game winner
+    function gameWinner() {
+      if (playerScore > computerScore) {
+        console.log("Player Wins")
+      } else if (computerScore > playerScore) {
+        console.log("Computer Wins")
+      } else if (computerScore == playerScore) {
+        console.log("It's a tie")
+      } else {
+        console.log("Something went wrong")
+      }
+    }
 
     i++
     roundDiv.textContent = i;
@@ -173,9 +184,7 @@
         for (let dis = 0; dis < buttons.length; dis++) {
             buttons[dis].setAttribute("disabled", "");
             buttons[dis].setAttribute("style", "filter:grayscale(1); max-width: 200px;")
-            //buttons[dis].setAttribute("style", "max-width: 200px;")
         }
-        //let resultGame = "Game Over" + "\r\n" + "Results:\n Round 1: " + roundOne + "\n Round 2: " + roundTwo + "\n Round 3: " + roundThree + "\n Round 4: " + roundFour + "\n Round 5: " + roundFive + "\n\nPlayer:Computer\n     " + playerScore + ":" + computerScore;
         const resultMsg = document.createElement("div");
         const resultContent = document.createTextNode("Game Over");
         resultMsg.appendChild(resultContent);
@@ -197,7 +206,14 @@
 
         const retryButton = document.getElementById('retryButton');
         retryButton.addEventListener('click', retry);
+        gameWinner();
+
       }
+
+
+
+
+
 
   }
 }
@@ -221,6 +237,7 @@ function retry() {
   infoHeader3.textContent = (" ");
   const retryAdd = document.getElementById('retryButton');
   retryAdd.remove();
+
 }
 
 
