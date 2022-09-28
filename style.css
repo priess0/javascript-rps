@@ -1,45 +1,55 @@
 body {
-  overflow: hidden;
+  overflow: auto;
   height: 100%;
 }
 
 .buttonsDiv {
   height: 400px;
-  max-height: 33vw;
+  max-height: 33vh;
   display: flex;
   align-items: center;
 }
 
 .gameDiv {
-  height: 400px;
-  max-height: 33vw;
-  font-family: 'Kalam', cursive;
-  font-size: 120%;
+  height: 40vh;
+  max-height: 400px;
+  max-width: 70vw;
+  overflow:hidden;
+
+  font-family: 'Anton', sans-serif;
+  font-size: calc(10px + 1.5vw);
   font-weight: bold;
+  text-align: center;
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: black;
-  color: #E5B642
+  color: #E5B642;
+}
 
-
+.gameDiv > * {
+  height: 1.5em;
+  transform-origin: 50% 0;
+  animation: result-animate .3s linear;
 }
 
 .logDiv {
-  height: 500px;
-  max-height: 33vw;
+  max-height: 33vh;
   font-size: 1em;
+
 }
 
 .logHeader {
   height: 1.5em;
   width: 400px;
+  max-width: 70vw;
   background-color: #6e571f;
   font-family: Space Mono, monospace;
   color: #E5B642;
 }
 
 .logWindow {
-  height: 6em;
+  height: 7.5em;
   width:  400px;
+    max-width: 70vw;
   background-color: #E5B642;
   font-family: Space Mono, monospace;
   overflow-y: scroll;
@@ -53,6 +63,7 @@ body {
   display: table;
   width: 100%;
   border-collapse: collapse;
+  height: 1.5em;
 }
 
 .info > div {
@@ -74,7 +85,21 @@ body {
   width: 48%;
 }
 
+.finalResult {
+  transform-origin: 50% 0;
+  animation: result-animate .3s linear;
+}
 
+@keyframes result-animate {
+	from {
+		transform: scaleY(0);
+		opacity: 0;
+	}
+	to {
+		transform: scaleY(1);
+		opacity: 1;
+	}
+}
 
 
 /* ----------------- SCROLLBAR --------------- */

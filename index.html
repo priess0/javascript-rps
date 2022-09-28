@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,400;0,600;0,700;1,400&family=Kalam:wght@300;400;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 
     <title></title>
   </head>
-  <body class="bod bg-dark text-light" id="bod" style="font-family: 'IBM Plex Sans', sans-serif;">
+  <body class="bod bg-dark text-light" id="bod">
     <!-- main div with buttons -->
     <div class="buttonsDiv" id="buttonsDiv">
       <div class="container d-flex justify-content-center w-75 mx-auto">
-        <input type="image" name="button" class="col p-2 w-25" style="max-width: 200px;" src="./images/rock.png" id="rock" value="1"></input>
-        <input type="image" name="button" class="col p-2 w-25" style="max-width: 200px;" src="./images/paper.png" id="paper" value="2"></input>
-        <input type="image" name="button" class="col p-2 w-25" style="max-width: 200px;" src="./images/scissors.png" id="scissors" value="3"></input>
+        <input type="image" name="button" class="col w-25" style="max-width: 200px;" src="./images/rock.png" id="rock" value="1"></input>
+        <input type="image" name="button" class="col w-25" style="max-width: 200px;" src="./images/paper.png" id="paper" value="2"></input>
+        <input type="image" name="button" class="col w-25" style="max-width: 200px;" src="./images/scissors.png" id="scissors" value="3"></input>
         <!-- <button type="button" name="button" class="col-sm" id="error" value="4">ERROR</button> -->
 
       <!-- div with details on current round -->
@@ -26,23 +26,23 @@
     </div>
     <div class="gameDiv container">
       <div class="row">
-        <div class="col d-flex justify-content-center" id="roundHeader">Results will display here</div>
+        <div class="col" id="roundHeader">Results will display here</div>
       </div>
       <div class="row">
-        <div class="round col d-flex justify-content-center" id="round"></div>
+        <div class="round col" id="round"></div>
       </div>
       <div class="row">
-        <div class="col d-flex justify-content-center" id="playerHeader"></div>
-        <div class="col d-flex justify-content-center" id="computerHeader"></div>
+        <div class="col" id="playerHeader"></div>
+        <div class="col" id="computerHeader"></div>
       </div>
       <div class="row">
-        <div class="player col d-flex justify-content-center" id="player"></div>
-        <div class="computer col d-flex justify-content-center" id="computer"></div>
+        <div class="player col" id="player"></div>
+        <div class="computer col" id="computer"></div>
       </div>
-      <div class="row py-4 d-flex justify-content-center">
+      <div class="row pt-4">
 
-        <div class="resultDiv">
-          <div class="infoHeaders info">
+        <div class="resultDiv" id="resultDiv">
+          <div class="infoHeaders info" id="infoHeaders">
 
               <div id="infoHeader1"></div>
               <div id="infoHeader2"></div>
@@ -50,7 +50,7 @@
 
           </div>
 
-          <div class="info">
+          <div class="info" id="info">
 
               <div id="info1"></div>
               <div id="info2"></div>

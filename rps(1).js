@@ -24,16 +24,8 @@
       const log = document.createElement("div");
       const logContent = document.createTextNode(htmlContent);
       log.appendChild(logContent);
+      const logWindow = document.getElementById("logWindow");
       logWindow.appendChild(log);
-      logWindow.scrollTop = logWindow.scrollHeight;
-    }
-
-    // aggregate log functions
-    function matchLog() {
-      htmlLog("Round " + (i));
-      htmlLog("Player chose: " + playerChoice);
-      htmlLog("Computer chose: " + computerChoice);
-      htmlLog(logResult);
     }
 
 
@@ -77,43 +69,43 @@
           // compare the results of the two functions
           if (Number(value.target.value) === 1 && ai === 1) {
             logResult = tieGame;
-            matchLog();
+            htmlLog(logResult);
             return result = "Tie";
           } else if (Number(value.target.value) === 1 && ai === 2) {
             logResult = computerWin;
-            matchLog();
+            htmlLog(logResult);
             return result = "Computer";
           } else if (Number(value.target.value) === 1 && ai === 3) {
             logResult = playerWin;
-            matchLog();
+            htmlLog(logResult);
             return result = "Player";
           } else if (Number(value.target.value) === 2 && ai === 1) {
             logResult = playerWin;
-            matchLog();
+            htmlLog(logResult);
             return result = "Player";
           } else if (Number(value.target.value) === 2 && ai === 2) {
             logResult = tieGame;
-            matchLog();
+            htmlLog(logResult);
             return result = "Tie";
           } else if (Number(value.target.value) === 2 && ai === 3) {
             logResult = computerWin;
-            matchLog();
+            htmlLog(logResult);
             return result = "Computer";
           } else if (Number(value.target.value) === 3 && ai === 1) {
             logResult = computerWin;
-            matchLog();
+            htmlLog(logResult);
             return result = "Computer";
           } else if (Number(value.target.value) === 3 && ai === 2) {
             logResult = playerWin;
-            matchLog();
+            htmlLog(logResult);
             return result = "Player";
           } else if (Number(value.target.value) === 3 && ai === 3) {
             logResult = tieGame;
-            matchLog();
+            htmlLog(logResult);
             return result = "Tie";
           } else {
             logResult = "ERROR";
-            matchLog();
+            htmlLog(logResult);
             return result = "Error";
           }
     // end of playRound function
@@ -125,9 +117,9 @@
 
     // game winner
     function gameWinner() {
-
+      const resultDiv = document.getElementById('resultDiv');
       finalResult = document.createElement("div");
-      finalResult.setAttribute ("class", "finalResult");
+      finalResult.setAttribute ("class", "finalResult d-flex");
       finalResult.setAttribute ("id", "finalResult");
       resultDiv.appendChild(finalResult);
 
@@ -135,13 +127,13 @@
 
       if (playerScore > computerScore) {
         console.log("Player Wins")
-        finalResult.textContent = "PLAYER WON THE GAME";
+        finalResult.textContent = "PLAYER WINS THE GAME";
       } else if (computerScore > playerScore) {
         console.log("Computer Wins")
-        finalResult.textContent = "COMPUTER WON THE GAME";
+        finalResult.textContent = "COMPUTER WINS THE GAME";
       } else if (computerScore == playerScore) {
         console.log("It's a tie")
-        finalResult.textContent = "THE GAME ENDED A TIE";
+        finalResult.textContent = "THE GAME ENDS IN A TIE";
       } else {
         console.log("Something went wrong")
         finalResult.textContent = "SOMETHING WENT HORRIBLY WRONG";
@@ -254,7 +246,7 @@ function retry() {
     infoDiv2.textContent = "";
     infoDiv3.textContent = "";
     roundDiv.textContent = "";
-    roundHeader.textContent = ("");
+    roundHeader.textContent = ("New Game");
     playerHeader.textContent = ("");
     computerHeader.textContent = ("");
     infoHeader1.textContent = ("");
@@ -265,6 +257,7 @@ function retry() {
   for (let dis = 0; dis < buttons.length; dis++) {
       buttons[dis].disabled = false;
       buttons[dis].setAttribute("style", "filter:grayscale(0); max-width: 200px;")
+      //buttons[dis].setAttribute("style", "max-width: 200px;")
   }
   i = 0;
   playerScore = 0;
@@ -296,11 +289,14 @@ function retry() {
   const infoHeader2 = document.getElementById('infoHeader2');
   const infoHeader3 = document.getElementById('infoHeader3');
   const retryDiv = document.getElementById('retryDiv');
-  const logWindow = document.getElementById("logWindow");
-  const resultDiv = document.getElementById('resultDiv');
 
 
 
+
+
+  //buttons.setAttribute("disabled", "");
+  //buttonImg.setAttribute("filter", "grayscale(100%)");
+  //buttonImg.style.width = "100px";
 
 
 
