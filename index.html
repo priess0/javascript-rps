@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="rps.js" defer ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <title></title>
+  </head>
+  <body class="bod bg-dark text-light" id="bod">
+    <!-- main div with buttons -->
+    <div class="buttonsDiv" id="buttonsDiv">
+      <div class="container d-flex justify-content-center w-75 mx-auto">
+        <input type="image" name="button" class="button col w-25" style="max-width: 200px;" src="./images/rock.png" id="rock" value="1"></input>
+        <input type="image" name="button" class="button col w-25" style="max-width: 200px;" src="./images/paper.png" id="paper" value="2"></input>
+        <input type="image" name="button" class="button col w-25" style="max-width: 200px;" src="./images/scissors.png" id="scissors" value="3"></input>
+        <!-- <button type="button" name="button" class="col-sm" id="error" value="4">ERROR</button> -->
+
+      <!-- div with details on current round -->
+      </div>
+    </div>
+    <div class="gameDiv container">
+      <div class="row">
+        <div class="col" id="roundHeader">Results will display here</div>
+      </div>
+      <div class="row">
+        <div class="round col" id="round"></div>
+      </div>
+      <div class="row">
+        <div class="winners col" id="playerHeader"></div>
+        <div class="winners col" id="beats"></div>
+        <div class="winners col" id="computerHeader"></div>
+      </div>
+      <div class="row">
+        <div class="winners player col" id="player"></div>
+        <div class="winners col" ></div>
+        <div class="winners computer col" id="computer"></div>
+      </div>
+      <div class="row pt-4">
+
+        <div class="resultDiv" id="resultDiv">
+          <div class="infoHeaders info" id="infoHeaders">
+
+              <div class="" id="infoHeader1"></div>
+              <div class="" id="infoHeader2"></div>
+              <div class="" id="infoHeader3"></div>
+
+          </div>
+
+          <div class="info" id="info">
+
+              <div id="info1"></div>
+              <div id="info2"></div>
+              <div id="info3"></div>
+
+          </div>
+        </div>
+
+        <div class="retry" id="retryDiv">
+      <!--
+          <input type="image" name="retryButton" style="max-width: 100px;" src="./images/retry.png" id="retryButton" /></input>
+        </div>
+      -->
+        </div>
+      </div>
+
+    </div>
+
+    <!-- div with log -->
+    <div class="logDiv">
+      <div class="logHeader col-md container mx-auto" id="logHeader">
+          <span><u>Log</u></span>
+      </div>
+      <div class="logWindow col-md container text-dark mx-auto" id="logWindow">
+      </div>
+    </div>
+
+  </body>
+</html>

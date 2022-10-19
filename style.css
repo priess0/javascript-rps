@@ -1,0 +1,140 @@
+body {
+  overflow: auto;
+  height: 70vw;
+  max-height: 100%;
+}
+
+.buttonsDiv {
+  height: 30vw;
+  max-height: 250px;
+  display: flex;
+  align-items: center;
+}
+
+.gameDiv {
+  height: 40vw;
+  max-height: 370px;
+  max-width: 70vw;
+  font-family: 'Anton', sans-serif;
+  font-size: min(30px, 3vw);
+  font-weight: bold;
+  text-align: center;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: #E5B642;
+  color: black;
+}
+
+.gameDiv > * {
+  height: 1.5em;
+  transform-origin: 50% 0;
+
+}
+
+.winners {
+  transition: all 0.1s ease;
+}
+
+.logDiv {
+  max-height: 33vh;
+  font-size: 1em;
+
+}
+
+.logHeader {
+  height: 1.5em;
+  width: 400px;
+  max-width: 70vw;
+  background-color: #6e571f;
+  font-family: Space Mono, monospace;
+  color: #E5B642;
+}
+
+.logWindow {
+  height: 7.5em;
+  width:  400px;
+  max-width: 70vw;
+  background-color: #E5B642;
+  font-family: Space Mono, monospace;
+  overflow-y: scroll;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 0 10px;
+}
+
+
+.info {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  height: 1.5em;
+}
+
+.info > div {
+  display: table-cell;
+}
+
+
+.info > div:nth-child(1) {
+  text-align: right;
+  width: 48%;
+}
+
+.info > div:nth-child(2) {
+  text-align: center;
+}
+
+.info > div:nth-child(3) {
+  text-align: left;
+  width: 48%;
+}
+
+.finalResult {
+  transform-origin: 50% 0;
+}
+
+
+/* ----------------- SCROLLBAR --------------- */
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #bd9635;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6e571f;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #212529;
+}
+
+::-webkit-scrollbar-corner {
+  background: #212529;
+}
+/* ----------------- SCROLLBAR --------------- */
+
+
+/* ----------------- ANIMATION --------------- */
+
+.button {
+ transition: all 0.05s ease;
+}
+
+.playing {
+  opacity: 90%;
+  transform: scale(1.05);
+}
+
+.winner {
+  transform: scale(1.3);
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: black;
+  color:#E5B642
+}
+/* ----------------- ANIMATION --------------- */

@@ -12,7 +12,6 @@
 
 
 
-
   // set up the main game function
   function game(value) {
     let playerWin = "Round n. " + (i+1) + " result: Player wins";
@@ -20,38 +19,13 @@
     let tieGame = "Round n. " + (i+1) + " result: Tie!";
     let logResult = "";
 
-
-    // animation
-    
-    function removeTransition(e) {
-      e.target.classList.remove('playing');
-    }
-    
-    function animationClick(e) {
-      e.target.classList.add("playing")
-    }
-    animationClick(value);
-
-    buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
-
-
-
-
     // add log to html code
     function htmlLog(htmlContent) {
       const log = document.createElement("div");
       const logContent = document.createTextNode(htmlContent);
       log.appendChild(logContent);
+      const logWindow = document.getElementById("logWindow");
       logWindow.appendChild(log);
-      logWindow.scrollTop = logWindow.scrollHeight;
-    }
-
-    // aggregate log functions
-    function matchLog() {
-      htmlLog("Round " + (i));
-      htmlLog("Player chose: " + playerChoice);
-      htmlLog("Computer chose: " + computerChoice);
-      htmlLog(logResult);
     }
 
 
@@ -92,73 +66,46 @@
           computerSelection(ai);
           computerDiv.textContent = (computerChoice);
 
-
-          // winner lights up
-          function winnerLight(winner, winnerChoice) {
-            playerHeader.classList.remove("winner")
-            computerHeader.classList.remove("winner")
-            playerDiv.classList.remove("winner")
-            computerDiv.classList.remove("winner")
-            beats.classList.remove("winner")
-            if (winner == "tie") {
-                beats.classList.add("winner");
-            } else {
-                winner.classList.add("winner");
-                winnerChoice.classList.add("winner");
-            }
-          }
-
-
           // compare the results of the two functions
           if (Number(value.target.value) === 1 && ai === 1) {
             logResult = tieGame;
-            winnerLight("tie", "tie");
-            matchLog();
+            htmlLog(logResult);
             return result = "Tie";
           } else if (Number(value.target.value) === 1 && ai === 2) {
             logResult = computerWin;
-            winnerLight(computerHeader, computerDiv);
-            matchLog();
+            htmlLog(logResult);
             return result = "Computer";
           } else if (Number(value.target.value) === 1 && ai === 3) {
             logResult = playerWin;
-            winnerLight(playerHeader, playerDiv);
-            matchLog();
+            htmlLog(logResult);
             return result = "Player";
           } else if (Number(value.target.value) === 2 && ai === 1) {
             logResult = playerWin;
-            winnerLight(playerHeader, playerDiv);
-            matchLog();
+            htmlLog(logResult);
             return result = "Player";
           } else if (Number(value.target.value) === 2 && ai === 2) {
             logResult = tieGame;
-            winnerLight("tie", "tie");
-            matchLog();
+            htmlLog(logResult);
             return result = "Tie";
           } else if (Number(value.target.value) === 2 && ai === 3) {
             logResult = computerWin;
-            winnerLight(computerHeader, computerDiv);
-            matchLog();
+            htmlLog(logResult);
             return result = "Computer";
           } else if (Number(value.target.value) === 3 && ai === 1) {
             logResult = computerWin;
-            winnerLight(computerHeader, computerDiv);
-            matchLog();
+            htmlLog(logResult);
             return result = "Computer";
           } else if (Number(value.target.value) === 3 && ai === 2) {
             logResult = playerWin;
-            winnerLight(playerHeader, playerDiv);
-            matchLog();
+            htmlLog(logResult);
             return result = "Player";
           } else if (Number(value.target.value) === 3 && ai === 3) {
             logResult = tieGame;
-            winnerLight("tie", "tie");
-            matchLog();
+            htmlLog(logResult);
             return result = "Tie";
           } else {
             logResult = "ERROR";
-            winnerLight(error);
-            matchLog();
+            htmlLog(logResult);
             return result = "Error";
           }
     // end of playRound function
@@ -170,21 +117,25 @@
 
     // game winner
     function gameWinner() {
-
+      const resultDiv = document.getElementById('resultDiv');
       finalResult = document.createElement("div");
-      finalResult.setAttribute ("class", "finalResult, winner");
+      finalResult.setAttribute ("class", "finalResult d-flex");
       finalResult.setAttribute ("id", "finalResult");
       resultDiv.appendChild(finalResult);
 
 
 
       if (playerScore > computerScore) {
-        finalResult.textContent = "PLAYER WON THE GAME";
+        console.log("Player Wins")
+        finalResult.textContent = "PLAYER WINS THE GAME";
       } else if (computerScore > playerScore) {
-        finalResult.textContent = "COMPUTER WON THE GAME";
+        console.log("Computer Wins")
+        finalResult.textContent = "COMPUTER WINS THE GAME";
       } else if (computerScore == playerScore) {
-        finalResult.textContent = "THE GAME ENDED A TIE";
+        console.log("It's a tie")
+        finalResult.textContent = "THE GAME ENDS IN A TIE";
       } else {
+        console.log("Something went wrong")
         finalResult.textContent = "SOMETHING WENT HORRIBLY WRONG";
       }
 
@@ -194,16 +145,12 @@
     roundDiv.textContent = i;
     if (i <= 5) {
       playRound(value)
+      console.log(i)
       // count the score
       if (result === "Computer") {
         computerScore = ++computerScore;
-        beats.textContent = "<";
-
       } else if (result === "Player") {
         playerScore = ++playerScore;
-        beats.textContent = ">";
-      } else if (result === "Tie") {
-        beats.textContent = "TIE";
       }
       roundResult(i);
       // round results function
@@ -248,13 +195,11 @@
 
       // final round setup
       if (i === 5) {
+        console.log("disabled!");
         for (let dis = 0; dis < buttons.length; dis++) {
             buttons[dis].setAttribute("disabled", "");
             buttons[dis].setAttribute("style", "filter:grayscale(1); max-width: 200px;")
         }
-        infoDiv1.classList.add("winner");
-        infoDiv2.classList.add("winner");
-        infoDiv3.classList.add("winner");
         const resultMsg = document.createElement("div");
         const resultContent = document.createTextNode("Game Over");
         resultMsg.appendChild(resultContent);
@@ -300,22 +245,19 @@ function retry() {
     infoDiv1.textContent = "";
     infoDiv2.textContent = "";
     infoDiv3.textContent = "";
-    infoDiv1.classList.remove("winner")
-    infoDiv2.classList.remove("winner")
-    infoDiv3.classList.remove("winner")
     roundDiv.textContent = "";
-    roundHeader.textContent = ("");
+    roundHeader.textContent = ("New Game");
     playerHeader.textContent = ("");
     computerHeader.textContent = ("");
     infoHeader1.textContent = ("");
     infoHeader2.textContent = ("");
     infoHeader3.textContent = ("");
-    beats.textContent = ("");
   }
 
   for (let dis = 0; dis < buttons.length; dis++) {
       buttons[dis].disabled = false;
       buttons[dis].setAttribute("style", "filter:grayscale(0); max-width: 200px;")
+      //buttons[dis].setAttribute("style", "max-width: 200px;")
   }
   i = 0;
   playerScore = 0;
@@ -332,6 +274,7 @@ function retry() {
 
 
   const buttons = document.getElementsByName('button');
+
   const buttonImg = document.getElementsByClassName('buttonImg')
   const roundDiv = document.getElementById('round');
   const playerDiv = document.getElementById('player');
@@ -346,12 +289,14 @@ function retry() {
   const infoHeader2 = document.getElementById('infoHeader2');
   const infoHeader3 = document.getElementById('infoHeader3');
   const retryDiv = document.getElementById('retryDiv');
-  const logWindow = document.getElementById("logWindow");
-  const resultDiv = document.getElementById('resultDiv');
-  const beats = document.getElementById('beats');
 
 
 
+
+
+  //buttons.setAttribute("disabled", "");
+  //buttonImg.setAttribute("filter", "grayscale(100%)");
+  //buttonImg.style.width = "100px";
 
 
 
