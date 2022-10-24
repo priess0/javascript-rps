@@ -24,11 +24,15 @@
     // animation
     
     function removeTransition(e) {
-      e.target.classList.remove('playing');
+      e.target.classList.remove('playing', 'playingRock');
     }
     
     function animationClick(e) {
+      if (e.target.id == "rock") {
+        e.target.classList.add("playingRock")
+      } else {
       e.target.classList.add("playing")
+      }
     }
     animationClick(value);
 
@@ -252,9 +256,9 @@
             buttons[dis].setAttribute("disabled", "");
             buttons[dis].setAttribute("style", "filter:grayscale(1); max-width: 200px;")
         }
-        infoDiv1.classList.add("winner");
-        infoDiv2.classList.add("winner");
-        infoDiv3.classList.add("winner");
+        infoDiv1.classList.add("winnerScore");
+        infoDiv2.classList.add("winnerScore");
+        infoDiv3.classList.add("winnerScore");
         const resultMsg = document.createElement("div");
         const resultContent = document.createTextNode("Game Over");
         resultMsg.appendChild(resultContent);
@@ -300,9 +304,9 @@ function retry() {
     infoDiv1.textContent = "";
     infoDiv2.textContent = "";
     infoDiv3.textContent = "";
-    infoDiv1.classList.remove("winner")
-    infoDiv2.classList.remove("winner")
-    infoDiv3.classList.remove("winner")
+    infoDiv1.classList.remove("winnerScore")
+    infoDiv2.classList.remove("winnerScore")
+    infoDiv3.classList.remove("winnerScore")
     roundDiv.textContent = "";
     roundHeader.textContent = ("");
     playerHeader.textContent = ("");
